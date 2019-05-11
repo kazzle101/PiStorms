@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright (c) 2015 mindsensors.com
 #
@@ -81,5 +81,3 @@ while not exitNow:
 			psm.screen.termPrintAt(9,"Exiting to menu")
 			time.sleep(0.5)
 			exitNow = True
-
-

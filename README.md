@@ -25,7 +25,7 @@ I have tested with (working through the demo programs):
 * NXT Colour sensor
 * I have also tested those in programs/30-DataVisulization that do not use an external sensor.
 
-NXT Sound and NXT Ultrasonic don't appear to be supported, and I don't have any EV3 parts, so cannot test those
+NXT Sound and NXT Ultrasonic don't appear to be supported, and I don't have any EV3 parts so cannot test those.
 
 ---
 

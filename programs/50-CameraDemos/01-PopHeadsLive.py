@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright (c) 2015 mindsensors.com
 #
@@ -94,7 +94,7 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
     )
 
     #print benchmarking information on Console
-    print time.time()*1000.0-lastTime," Found {0} faces!".format(len(faces))
+    print ("{0}, Found {1} faces!".format(time.time()*1000.0-lastTime,len(faces)))
     lastTime = time.time()*1000.0
 
     psm.screen.fillImgArray(0, 0, 320, 240, image)
@@ -130,7 +130,3 @@ for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=
         break
     #if key == ord("q"):
     #    break
-
-
-
-
