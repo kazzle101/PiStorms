@@ -1,7 +1,24 @@
 # PiStorms
 
-## This fork of PiStorms is to make it compatable with Python 3
-## A Work in progress - this version probably won't work in Python 2.7 
+## This fork of PiStorms is to make it compatible with Python 3
+A Work in progress - this version probably won't work in Python 2.7, and the setup may not work as expected
+
+$ git clone https://github.com/kazzle101/PiStorms.git
+$ PiStorms/setup/setup3.sh
+
+See also:
+$ PiStorms/setup/copypythonfiles.sh
+
+There is also a known problem running this as normal user, rather than root. Permissions on the files /var/lock/ili9341 and /var/lock/msbrowser
+need setting for write access by the software. I have commented out the chown line in sys/MS_ILI9341.py, you should add your user to the pi group
+and then run the permissions script:
+
+$ sudo usermod -a -G pi &lt;username&gt;
+$ sudo PiStorms/setup/setlockfiles.sh
+
+The permissions on the lock files get reset everytime the pi is restarted
+
+---
 
 The [PiStorms](http://www.mindsensors.com/content/78-pistorms-lego-interface) is a robotics platform. It enables you to create robots using LEGO Mindstorms parts, and control it on a Raspberry Pi with Python. Besides its 4 motor ports, 4 sensor ports, and all the benefits of the Raspberry Pi, the PiStorms lets you do even more. It has a touchscreen for easy visual feedback and touch input. It has a convenient web interface to program and control the device, even accessible on mobile devices.
 
