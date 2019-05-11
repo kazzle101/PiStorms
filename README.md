@@ -1,7 +1,7 @@
 # PiStorms
 
 ## This fork of PiStorms is to make it compatible with Python 3
-A Work in progress - this version probably won't work in Python 2.7, and the setup may not work as expected
+A Work in progress - this version won't work in Python 2.7, and the setup script may not work as expected
 ```
 $ git clone https://github.com/kazzle101/PiStorms.git
 $ PiStorms/setup/setup3.sh
@@ -19,14 +19,13 @@ $ sudo PiStorms/setup/setlockfiles.sh
 The permissions on the lock files get reset every time the pi is restarted
 
 I have tested with (working through the demo programs):
-. NXT Motor - Degrees, RunSeconds, ShowPos (angle), Motor Sync and PID test
-. NXT Touch sensor
-. NXT Light sensor
-. NXT Colour sensor
+* NXT Motor - Degrees, RunSeconds, ShowPos (angle), Motor Sync and PID test
+* NXT Touch sensor
+* NXT Light sensor
+* NXT Colour sensor
+* I have also tested those in programs/30-DataVisulization that do not use an external sensor.
 
-NXT Sound and NXT Ultrasonic don't appear to be supported. I don't have any EV3 parts, so cannot test those
-
-I have also tested those in programs/30-DataVisulization that do not use an external sensor.
+NXT Sound and NXT Ultrasonic don't appear to be supported, and I don't have any EV3 parts, so cannot test those
 
 ---
 
