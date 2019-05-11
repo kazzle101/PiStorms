@@ -13,7 +13,7 @@ $ PiStorms/setup/copypythonfiles.sh
 There is also a known problem running this as normal user, rather than root. Permissions on the files /var/lock/ili9341 and /var/lock/msbrowser
 need setting for write access by the software. I have commented out the chown line in sys/MS_ILI9341.py (line 52), you should add your user to the pi group and then run the permissions script:
 ```
-$ sudo usermod -a -G pi &lt;username&gt;
+$ sudo usermod -a -G pi <username>
 $ sudo PiStorms/setup/setlockfiles.sh
 ```
 The permissions on the lock files get reset everytime the pi is restarted
