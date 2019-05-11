@@ -2,8 +2,10 @@
 
 PY3_PATH="/usr/local/lib/python3.5"
 
-sudo pip3 install configparser
-sudo pip3 install pillow
+#sudo pip3 install configparser
+#sudo pip3 install pillow
+#sudo apt install python3-matplotlib python3-scipy
+ 
 
 # copy Python library files
 sudo cp -p ../sys/rmap.py $PY3_PATH/dist-packages/

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright (c) 2014 OpenElectrons.com
 #
@@ -57,7 +57,7 @@ try:
     time.sleep(.5)
 except NameError:
     #pass
-    print "Did not send Ready"
+    print ("Did not send Ready")
 
 doExit = False
 # Handles messages received from Scratch

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from picamera.array import PiRGBArray
 from picamera import PiCamera
 from PiStorms import PiStorms
@@ -164,7 +166,7 @@ if __name__ == '__main__':
         i = i+1
         image = frame.array
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        print i
+        print ("{0}".format(i))
         #image = icon.get_image(camera)
         #cv2.imshow('captured image',image)
         #cv2.waitKey(0)
@@ -183,11 +185,11 @@ if __name__ == '__main__':
         print min(results, key=results.get)
         '''
         img = icon.identify_target(image)
-        print "identified: " , img
+        print ("identified: {0}".format(img))
 
         psm.screen.termPrintAt(7, "count: " + str(i))
         psm.screen.termPrintAt(8, "identified: " + str(img))
-        print 1000*(time.time() - lasttime)
+        print ("{0}".format(1000*(time.time() - lasttime)))
         lasttime = time.time()
         # clear the stream in preparation for the next frame
         rawCapture.truncate(0)

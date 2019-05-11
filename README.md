@@ -16,7 +16,17 @@ need setting for write access by the software. I have commented out the chown li
 $ sudo usermod -a -G pi <username>
 $ sudo PiStorms/setup/setlockfiles.sh
 ```
-The permissions on the lock files get reset everytime the pi is restarted
+The permissions on the lock files get reset every time the pi is restarted
+
+I have tested with (working through the demo programs):
+. NXT Motor - Degrees, RunSeconds, ShowPos (angle), Motor Sync and PID test
+. NXT Touch sensor
+. NXT Light sensor
+. NXT Colour sensor
+
+NXT Sound and NXT Ultrasonic don't appear to be supported. I don't have any EV3 parts, so cannot test those
+
+I have also tested those in programs/30-DataVisulization that do not use an external sensor.
 
 ---
 

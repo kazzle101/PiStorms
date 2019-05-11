@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright (c) 2015 mindsensors.com
 #
@@ -30,7 +30,7 @@ import ImageFont
 import Adafruit_ILI9341 as TFT
 import Adafruit_GPIO.SPI as SPI
 
-print "Beginning PiStorms screen test"
+print ("Beginning PiStorms screen test")
 disp = TFT.ILI9341(24, rst=25, spi=SPI.SpiDev(0,0,max_speed_hz=64000000))
 disp.begin()
 disp.clear()
@@ -50,4 +50,4 @@ image.paste(rotated, position, rotated)
 disp.display()
 time.sleep(2)
 
-print "Exiting PiStorms screen test"
+print ("Exiting PiStorms screen test")

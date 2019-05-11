@@ -412,10 +412,10 @@ class PSMotor():
                PiStormsCom.PS_CONTROL_GO
         if(brakeOnCompletion):
             ctrl |= PiStormsCom.PS_CONTROL_BRK
-        b4 = (degs/0x1000000)
-        b3 = ((degs%0x1000000)/0x10000)
-        b2 = (((degs%0x1000000)%0x10000)/0x100)
-        b1 = (((degs%0x1000000)%0x10000)%0x100)
+        b4 = int((degs/0x1000000))
+        b3 = int(((degs%0x1000000)/0x10000))
+        b2 = int((((degs%0x1000000)%0x10000)/0x100))
+        b1 = int((((degs%0x1000000)%0x10000)%0x100))
         array = [b1, b2, b3, b4, speed, 0, 0, ctrl]
         if(self.motornum == 1):
             self.bank.writeArray(PiStormsCom.PS_SetPoint_M1, array)
@@ -437,18 +437,18 @@ class PSMotor():
             print ("Error: Could not read PID values")
             return []
     def SetPerformanceParameters(self, Kp_tacho, Ki_tacho, Kd_tacho, Kp_speed, Ki_speed, Kd_speed, passcount, tolerance): # untested
-        Kp_t1 = Kp_tacho%0x100
-        Kp_t2 = Kp_tacho/0x100
-        Ki_t1 = Ki_tacho%0x100
-        Ki_t2 = Ki_tacho/0x100
-        Kd_t1 = Kd_tacho%0x100
-        Kd_t2 = Kd_tacho/0x100
-        Kp_s1 = Kp_speed%0x100
-        Kp_s2 = Kp_speed/0x100
-        Ki_s1 = Ki_speed%0x100
-        Ki_s2 = Ki_speed/0x100
-        Kd_s1 = Kd_speed%0x100
-        Kd_s2 = Kd_speed/0x100
+        Kp_t1 = int(Kp_tacho%0x100)
+        Kp_t2 = int(Kp_tacho/0x100)
+        Ki_t1 = int(Ki_tacho%0x100)
+        Ki_t2 = int(Ki_tacho/0x100)
+        Kd_t1 = int(Kd_tacho%0x100)
+        Kd_t2 = int(Kd_tacho/0x100)
+        Kp_s1 = int(Kp_speed%0x100)
+        Kp_s2 = int(Kp_speed/0x100)
+        Ki_s1 = int(Ki_speed%0x100)
+        Ki_s2 = int(Ki_speed/0x100)
+        Kd_s1 = int(Kd_speed%0x100)
+        Kd_s2 = int(Kd_speed/0x100)
         passcount = passcount
         tolerance = tolerance
         array = [Kp_t1, Kp_t2, Ki_t1, Ki_t2, \
@@ -707,7 +707,7 @@ class PiStormsCom(object):
         try:
             x, y = self.getTouchscreenCoordinates()
             if x > 300 and y > 0:
-                return [8, 16, 24, 40][(y-1)/(240/4)]
+                return [8, 16, 24, 40][int((y-1)/(240/4))]
             else:
                 return 0
         except:

@@ -71,10 +71,10 @@ echo "Updating package lists..."
 sudo apt-get -qq -y update
 echo "Downloading and installing 15 required packages..."
 sudo apt-get -qq -y install build-essential git nmap mpg123 apache2 php5 libapache2-mod-php5 libapache2-mod-php\
-                            python-numpy python-matplotlib python-scipy python-opencv \
-                            python-dev python-smbus python-pip python-imaging &> /dev/null
+                            python3-numpy python3-matplotlib python3-scipy python3-opencv \
+                            python3-dev python3-smbus python3-pip python3-imaging &> /dev/null
 echo "Updating pip..."
-sudo pip3 -qq install --upgrade pip
+sudo pip3 -qq install --upgrade pip3
 echo "Downloading and installing 7 required Python packages..."
 sudo pip3 -qq install --upgrade mindsensors-i2c
 sudo pip3 -qq install RPi.GPIO wireless wifi ws4py flask imutils python-imaging
@@ -104,22 +104,24 @@ fi
 sleep 2
 sudo cp -p ../sys/swarmserver /usr/local/bin/
 
+PY3_PATH="/usr/local/lib/python3.5"
+
 # copy Python library files
-sudo cp -p ../sys/rmap.py /usr/local/lib/python2.7/dist-packages/
-sudo cp -p ../sys/rmapcfg.py /usr/local/lib/python2.7/dist-packages/
-sudo cp -p ../sys/scratch.py /usr/local/lib/python2.7/dist-packages/
-sudo cp -p ../sys/PiStorms.py /usr/local/lib/python2.7/dist-packages/
-sudo cp -p ../sys/PiStorms_GRX.py /usr/local/lib/python2.7/dist-packages/
-sudo cp -p ../sys/PiStormsCom.py /usr/local/lib/python2.7/dist-packages/
-sudo cp -p ../sys/PiStormsCom_GRX.py /usr/local/lib/python2.7/dist-packages/
-sudo cp -p ../sys/TouchScreenInput.py /usr/local/lib/python2.7/dist-packages/
-sudo cp -p ../sys/mindsensorsUI.py /usr/local/lib/python2.7/dist-packages/
-sudo cp -p ../sys/MS_ILI9341.py /usr/local/lib/python2.7/dist-packages/
-sudo cp -p ../sys/mindsensors.py /usr/local/lib/python2.7/dist-packages/
-sudo cp -p ../sys/MsDevices.py /usr/local/lib/python2.7/dist-packages/
-sudo cp -p ../sys/LegoDevices.py /usr/local/lib/python2.7/dist-packages/
-sudo cp -p ../sys/GroveDevices.py /usr/local/lib/python2.7/dist-packages/
-sudo cp -p ../sys/swarmclient.py /usr/local/lib/python2.7/dist-packages/
+sudo cp -p ../sys/rmap.py $PY3_PATH/dist-packages/
+sudo cp -p ../sys/rmapcfg.py $PY3_PATH/dist-packages/
+sudo cp -p ../sys/scratch.py $PY3_PATH/dist-packages/
+sudo cp -p ../sys/PiStorms.py $PY3_PATH/dist-packages/
+sudo cp -p ../sys/PiStorms_GRX.py $PY3_PATH/dist-packages/
+sudo cp -p ../sys/PiStormsCom.py $PY3_PATH/dist-packages/
+sudo cp -p ../sys/PiStormsCom_GRX.py $PY3_PATH/dist-packages/
+sudo cp -p ../sys/TouchScreenInput.py $PY3_PATH/dist-packages/
+sudo cp -p ../sys/mindsensorsUI.py $PY3_PATH/dist-packages/
+sudo cp -p ../sys/MS_ILI9341.py $PY3_PATH/dist-packages/
+sudo cp -p ../sys/mindsensors.py $PY3_PATH/dist-packages/
+sudo cp -p ../sys/MsDevices.py $PY3_PATH/dist-packages/
+sudo cp -p ../sys/LegoDevices.py $PY3_PATH/dist-packages/
+sudo cp -p ../sys/GroveDevices.py $PY3_PATH/dist-packages/
+sudo cp -p ../sys/swarmclient.py $PY3_PATH/dist-packages/
 
 # copy web interface files
 sudo mkdir -p /var/www
