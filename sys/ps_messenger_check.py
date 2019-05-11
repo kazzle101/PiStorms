@@ -25,12 +25,12 @@
 
 import urllib, json
 import commands
-import ConfigParser
+import configparser
 
 json_file = '/var/tmp/ps_data.json'
 cfg_file = '/usr/local/mindsensors/conf/msdev.cfg'
 
-config = ConfigParser.RawConfigParser()
+config = configparser.RawConfigParser()
 config.read(cfg_file)
 
 message_server = config.get('servers', 'message_server')
@@ -48,7 +48,7 @@ try:
     h = urllib.urlopen(link2)
     new_json = json.loads(h.readline())
 except:
-    #print "connection failed, exiting"
+    #print ("connection failed, exiting")
     exit()
 
 # open the local file and read the message to comapre

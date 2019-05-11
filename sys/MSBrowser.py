@@ -35,10 +35,10 @@ from PiStormsCom_GRX import GRXCom
 import Image, ImageDraw, ImageFont
 from datetime import datetime
 from fcntl import flock, LOCK_EX, LOCK_UN, LOCK_NB
-import ConfigParser
+import configparser
 
 def getConfig():
-    config = ConfigParser.RawConfigParser()
+    config = configparser.RawConfigParser()
     config.read(configFile)
     return config
 def getProgramDir():
