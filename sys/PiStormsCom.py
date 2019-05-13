@@ -412,11 +412,12 @@ class PSMotor():
                PiStormsCom.PS_CONTROL_GO
         if(brakeOnCompletion):
             ctrl |= PiStormsCom.PS_CONTROL_BRK
-        b4 = int((degs/0x1000000))
-        b3 = int(((degs%0x1000000)/0x10000))
-        b2 = int((((degs%0x1000000)%0x10000)/0x100))
-        b1 = int((((degs%0x1000000)%0x10000)%0x100))
+        b4 = (degs//0x1000000)
+        b3 = ((degs%0x1000000)//0x10000)
+        b2 = (((degs%0x1000000)%0x10000)//0x100)
+        b1 = (((degs%0x1000000)%0x10000)%0x100)
         array = [b1, b2, b3, b4, speed, 0, 0, ctrl]
+
         if(self.motornum == 1):
             self.bank.writeArray(PiStormsCom.PS_SetPoint_M1, array)
         if(self.motornum == 2):

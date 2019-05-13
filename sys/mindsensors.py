@@ -1305,10 +1305,12 @@ class MMX(mindsensors_i2c):
         ctrl |= self.MMX_CONTROL_RELATIVE
 
         d = degs
-        t4 = (d/0x1000000)
-        t3 = ((d%0x1000000)/0x10000)
-        t2 = (((d%0x1000000)%0x10000)/0x100)
+        t4 = (d//0x1000000)
+        t3 = ((d%0x1000000)//0x10000)
+        t2 = (((d%0x1000000)%0x10000)//0x100)
         t1 = (((d%0x1000000)%0x10000)%0x100)
+
+        #print("mindsensors.py runDegs {0}".format(degs))
 
         if ( brakeOnCompletion == True ):
             ctrl |= self.MMX_CONTROL_BRK
@@ -1345,9 +1347,9 @@ class MMX(mindsensors_i2c):
 
         d = rotations * 360
 
-        t4 = (d/0x1000000)
-        t3 = ((d%0x1000000)/0x10000)
-        t2 = (((d%0x1000000)%0x10000)/0x100)
+        t4 = (d//0x1000000)
+        t3 = ((d%0x1000000)//0x10000)
+        t2 = (((d%0x1000000)%0x10000)//0x100)
         t1 = (((d%0x1000000)%0x10000)%0x100)
 
         if ( brakeOnCompletion == True ):
@@ -1383,9 +1385,9 @@ class MMX(mindsensors_i2c):
         ctrl |= self.MMX_CONTROL_TACHO
         d = pos
 
-        t4 = (d/0x1000000)
-        t3 = ((d%0x1000000)/0x10000)
-        t2 = (((d%0x1000000)%0x10000)/0x100)
+        t4 = (d//0x1000000))
+        t3 = ((d%0x1000000)//0x10000)
+        t2 = ((d%0x1000000)%0x10000)//0x100)
         t1 = (((d%0x1000000)%0x10000)%0x100)
 
         if ( brakeOnCompletion == True ):
@@ -1451,17 +1453,17 @@ class MMX(mindsensors_i2c):
     #  @param tolerance The tolerance (in ticks) for encoder positioning .
     def SetPerformanceParameters(self, Kp_tacho, Ki_tacho, Kd_tacho, Kp_speed, Ki_speed, Kd_speed, passcount, tolerance):
         Kp_t1 = Kp_tacho%0x100
-        Kp_t2 = Kp_tacho/0x100
+        Kp_t2 = Kp_tacho//0x100
         Ki_t1 = Ki_tacho%0x100
-        Ki_t2 = Ki_tacho/0x100
+        Ki_t2 = Ki_tacho//0x100
         Kd_t1 = Kd_tacho%0x100
-        Kd_t2 = Kd_tacho/0x100
+        Kd_t2 = Kd_tacho//0x100
         Kp_s1 = Kp_speed%0x100
-        Kp_s2 = Kp_speed/0x100
+        Kp_s2 = Kp_speed//0x100
         Ki_s1 = Ki_speed%0x100
-        Ki_s2 = Ki_speed/0x100
+        Ki_s2 = Ki_speed//0x100
         Kd_s1 = Kd_speed%0x100
-        Kd_s2 = Kd_speed/0x100
+        Kd_s2 = Kd_speed//0x100
         print ("Kp_t1: {0}".format(str(Kp_t1)))
         print ("Ki_t1: {0}".format(str(Ki_t1)))
         print ("Kp_t2: {0}".format(str(Kp_t2)))
